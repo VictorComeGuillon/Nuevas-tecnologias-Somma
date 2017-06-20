@@ -1,17 +1,34 @@
 package somma
+import grails.plugin.springsecurity.annotation.Secured
+import grails.plugin.springsecurity.SpringSecurityService
+import org.springframework.security.core.*;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.userdetails.*
 
+
+
+@Secured('ROLE_ADMIN')
 class HomeController {
 
 	def HomeService
+    def springSecurityService
 
 	def index() {
-		[name: session.name ?: 'User', documentList: Document.listOrderByCreation_date(order : "desc"), documentTotal: Document.count()]
-	}
+		def user = springSecurityService.currentUser
+		def userProjectList = Project.where {user.id == user.id}.list()
+		def counter = Project.where {user.id == user.id}.count()
+		
+		if(counter == 1){
 
-	def test() {
-		[projectList: Project.list()]
-	}
+			redirect view: 'project', id: userProjectList.id
+		
+		}else{
 
+		[username: user, userProjectList: userProjectList]
+
+		}
+	}
 
 	def project() {
 		Long test = (params.id).toLong()
@@ -53,6 +70,8 @@ class HomeController {
 		Long test = (session.domain.id).toLong()
 		def domain = Domain.get(test)
 
+		def user = springSecurityService.currentUser
+
 		if(file.empty) {
 			flash.message = "File cannot be empty"
 			} else {
@@ -63,10 +82,13 @@ class HomeController {
 				file.transferTo(new File(document.path))
 				project.addToDocument(document)
 				domain.addToDocument(document)
+				user.addToDocument(document)
 				project.save()
 				domain.save()
+				user.save()
 				document.save()
-				redirect controller: 'Home', view: 'domain'
+
+				redirect action: 'project' id: aver
 			}
 		}
 

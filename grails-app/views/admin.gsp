@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta name="layout" content="app"/>
+    <meta name="layout" content="main"/>
     <title>Somma Docs</title>
 
     <asset:link rel="icon" href="logoSomma.png" type="image/x-ico" />

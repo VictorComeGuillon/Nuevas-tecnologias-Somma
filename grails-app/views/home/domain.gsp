@@ -14,6 +14,7 @@
                     <tr>
                         <g:sortableColumn property="name" title="Name" />
                         <g:sortableColumn property="creation_date" title="Creation Date" />
+                        <g:sortableColumn property="user.id" title="Created by" />
                     </tr>
                 </thead>
                 <tbody>
@@ -21,6 +22,8 @@
                     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                         <td><g:link action="download" id="${document.id}">${document.name}</g:link></td>
                         <td><g:formatDate date="${document.creation_date}" /></td>
+                        <td>${document.user.username}</td>
+
                     </tr>
                 </g:each>
                 </tbody>

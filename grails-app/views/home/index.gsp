@@ -8,28 +8,30 @@
 
     <div id="content" role="main">
         <section class="row colset-2-its">   
-        <g:link action="test">ENTER</g:link>         
-        <h1>Welcome ${name}!</h1>
-        <g:if test="${flash.message}"> 
-            <div class="message" role="status">${flash.message}</div>
-        </g:if>
+        <h3>Welcome ${username}!</h3><br>
+        
 
-            <p>There are ${documentTotal} documents in the database.</p> 
-
-            <ul>
-                <g:each in="${documentList}" var="document">
-                <li><g:link controller="document" action="show" id="${document.id}">
-                ${document.creation_date} - ${document.name} </g:link>
-                ${document.project.name}</li>
-
-            </g:each>
-        </ul>
-
-        <g:form action="updateName" style="margin: 0 auto; width:320px"> 
-            <g:textField name="name" value="" />
-            <g:submitButton name="Update name" />
-        </g:form>
-
+     <div id="list-project" class="content scaffold-list" role="main">
+            <g:if test="${flash.message}">
+                <div class="message" role="status">${flash.message}</div>
+            </g:if>
+            <table>
+                <thead>
+                    <tr>
+                        <g:sortableColumn property="name" title="Name" />
+                        <g:sortableColumn property="location" title="location" />
+                    </tr>
+                </thead>
+                <tbody>
+                <g:each in="${userProjectList}" status="i" var="project">
+                    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                        <td><g:link action="project" id="${project.id}">${project.name}</g:link></td>
+                        <td>${project.location}</td>
+                    </tr>
+                </g:each>
+                </tbody>
+            </table>
+        </div>
         
     </section>
 </div>

@@ -6,7 +6,7 @@ class Document {
 	Date creation_date = new Date()
 	String path
 
-	static belongsTo = [project: Project, domain: Domain]
+	static belongsTo = [project: Project, domain: Domain, user: User]
 
 
 	String toString() { return name }

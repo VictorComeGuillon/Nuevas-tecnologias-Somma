@@ -1,5 +1,7 @@
 package somma
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured('ROLE_ADMIN')
 class DomainController {
 
 	static scaffold = Domain

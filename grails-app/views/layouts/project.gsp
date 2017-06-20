@@ -6,6 +6,7 @@
     <title>
         <g:layoutTitle default="Docs Catalog"/>
     </title>
+    <g:javascript library="jquery" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <asset:stylesheet src="application.css"/>
@@ -17,25 +18,23 @@
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                
                 <div class="nav" role="navigation">
                     <ul>
                         <li><asset:image src="logoSomma.png" style="width: 80px;"/></li>
-                        <li><a href="/logoff">
-                            Exit</a></li>
-
+                            <li><g:link action="index">
+                            Home</g:link></li>
+                            <li> <g:each in="${domainsProjectList}" status="i" var="domain">
+                                <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                                    <li><g:link action="domain" id="${domain.id}">${domain.name}</g:link></li>
+                                </tr>
+                            </g:each></li>
                         </ul>                        
                     </div>
                 </div>
             </div>
-            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
-                <ul class="nav navbar-nav navbar-right">
-                    <g:pageProperty name="page.nav" />
-                </ul>
-            </div>
         </div>
-    </div>
 
+        
     <g:layoutBody/>
 
     <div class="footer" role="contentinfo"></div>

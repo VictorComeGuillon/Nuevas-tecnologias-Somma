@@ -8,7 +8,7 @@ class Domain {
 
 	String toString() { return name }
 	static constraints = {
-		name blank:false, unique:true, inList: ["Home", "Plans Architecte", "Rapports", "Controls", "Electricite", "Charpente", "Couverture"]
+		name blank:false, unique:true, inList: ["Plans Architecte", "Rapports", "Controls", "Electricite", "Charpente", "Couverture"]
 	}
 
 	

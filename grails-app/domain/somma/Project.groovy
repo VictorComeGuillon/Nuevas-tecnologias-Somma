@@ -2,7 +2,7 @@ package somma
 
 class Project {
 
-	static hasMany = [document: Document, domain: Domain]
+	static hasMany = [document: Document, domain: Domain, user: User]
 
 	String name
 	String location

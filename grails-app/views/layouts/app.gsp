@@ -23,18 +23,6 @@
                         <asset:image src="logoSomma.png"/>
                         </i> Home
                 </a>
-                <a href="/home/domain/1" class="navbar-brand">
-                    Plans Architecte
-                </a>
-                <a href="/home/project" class="navbar-brand">
-                    Lots
-                </a>
-                <a href="/home/domain/2" class="navbar-brand">
-                    Rapports
-                </a>
-                <a href="/home/domain/3" class="navbar-brand">
-                    Controls
-                </a>
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
                 <ul class="nav navbar-nav navbar-right">
