@@ -117,4 +117,8 @@ environments:
         uploadFolder: somma/grails-app/assets/document/
         dataSource:
             dbCreate: update
-            url: jdbc:mysql://localhost/somma?useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            uri: new URI(System.env.DATABASE_URL?:"mysql://test:test@localhost/test")
+            url: "jdbc:mysql://" + uri.host + ":" + uri.port + uri.path
+            username: uri.userInfo.split(":")[0]
+            password: uri.userInfo.split(":")[1]
