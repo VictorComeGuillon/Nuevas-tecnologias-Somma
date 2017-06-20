@@ -18,7 +18,7 @@ class HomeController {
 		def user = springSecurityService.currentUser
 		def userProjectList = Project.where {user.id == user.id}.list()
 		def counter = Project.where {user.id == user.id}.count()
-		
+
 		if(counter == 1){
 
 			redirect view: 'project', id: userProjectList.id
@@ -88,7 +88,6 @@ class HomeController {
 				user.save()
 				document.save()
 
-				redirect action: 'project' id: aver
 			}
 		}
 
