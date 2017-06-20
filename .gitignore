@@ -11,5 +11,5 @@ Thumbs.db
 *Db.properties
 *Db.script
 stacktrace.log
-/target
 /build
+/target
