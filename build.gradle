@@ -30,7 +30,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
     compile "org.springframework.boot:spring-boot-starter-actuator"
-    compile "org.springframework.boot:spring-boot-starter-tomcat"
+	provided "org.springframework.boot:spring-boot-starter-tomcat"
     compile "org.grails:grails-dependencies"
     compile "org.grails:grails-web-boot"
     compile "org.grails.plugins:cache"
@@ -49,6 +49,7 @@ dependencies {
     runtime 'mysql:mysql-connector-java:5.1.40' 
     compile 'org.grails.plugins:spring-security-core:3.1.2'
 
+    compile 'com.github.jsimone:webapp-runner:8.0.30.2'
 }
 
 bootRun {
