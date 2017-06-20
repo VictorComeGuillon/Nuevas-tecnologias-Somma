@@ -26,3 +26,17 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
+environments {
+  production {
+  	uploadFolder = "somma/grails-app/assets/document/"
+    dataSource {
+      dbCreate = "update"
+      driverClassName = "com.mysql.jdbc.Driver"
+      dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+      uri = new URI(System.env.DATABASE_URL?:"mysql://test:test@localhost/test")
+      url = "jdbc:mysql://" + uri.host + ":" + uri.port + uri.path
+      username = "victor"
+      password = "victor"
+    }
+  }
+}
