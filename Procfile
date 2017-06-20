@@ -5,4 +5,4 @@
 
 # web: cd build ; java $JAVA_OPTS -Dgrails.env=prod -jar ../build/server/webapp-runner-.jar --expand-war --port $PORT libs/.war
 
-# -jar server/webapp-runner.jar $RUNNER_OPTS --port 43849 target/*.war
+web: cd build ; java -Dgrails.env=prod -jar ../build/server/webapp-runner-*.jar --expand-war --port $PORT libs/*.war
