@@ -48,6 +48,9 @@ dependencies {
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
     runtime 'mysql:mysql-connector-java:5.1.40' 
     compile 'org.grails.plugins:spring-security-core:3.1.2'
+
+    compile 'com.github.jsimone:webapp-runner:8.0.30.2'
+
 }
 
 bootRun {
@@ -59,10 +62,6 @@ bootRun {
 assets {
     minifyJs = true
     minifyCss = true
-}
-
-dependencies {
-  compile 'com.github.jsimone:webapp-runner:8.0.30.2'
 }
 
 task wrapper(type: Wrapper) {
